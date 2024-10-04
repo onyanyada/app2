@@ -23,7 +23,7 @@
             
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-500 font-bold">
-                    本を管理する
+                    購入スケジュール
                 </div>
             </div>
 
@@ -35,7 +35,7 @@
                    <!-- カラム１ -->
                     <div class="w-full md:w-1/1 px-3 mb-2 md:mb-0">
                       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                       Book Name
+                       購入品
                       </label>
                       <input name="item_name" class="appearance-none block w-full text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="">
                     </div>
@@ -56,7 +56,7 @@
                     <!-- カラム４ -->
                     <div class="w-full md:w-1/1 px-3 mb-6 md:mb-0">
                       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                        発売日
+                        購入日
                       </label>
                       <input name="published" type="date" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     </div>
@@ -73,13 +73,22 @@
     
     
     <!--右側エリア[START]-->
-    <div class="flex-1 text-gray-700 text-left bg-blue-100 px-4 py-2 m-2">
-         <!-- 現在の本 -->
-        @if (count($books) > 0)
-            @foreach ($books as $book)
-                <x-collection id="{{ $book->id }}">{{ $book->item_name }}</x-collection>
-            @endforeach
-        @endif
+    <div class="flex-1 text-gray-700 text-left bg-gray-100 px-4 py-2 m-2">
+
+            <!-- 現在の本 -->
+            @if (count($books) > 0)
+<div class="space-x-8 ">
+                    @foreach ($books as $book)
+                        <x-collection id="{{ $book->id }}">
+                            <span>{{ $book->item_name }}</span>
+                            <span>{{ $book->item_number }}個</span>
+                            <span>{{ $book->item_amount }}円</span>
+                            <span>{{ $book->published}}</span>
+                        </x-collection>
+                    @endforeach
+</div>
+            @endif
+
         <div>
             {{ $books->links()}}
         </div>
