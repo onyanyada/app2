@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;      //この2行を追加！
 
 class BookController extends Controller
 {
+
+
+
     /**
      * Display a listing of the resource.
      */
@@ -114,4 +117,6 @@ class BookController extends Controller
         $book->delete();       //追加
         return redirect('/');  //追加
     }
+
+
 }
