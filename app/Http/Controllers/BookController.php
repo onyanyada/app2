@@ -17,7 +17,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::orderBy('created_at', 'asc')->paginate(2);
+        $books = Book::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->paginate(3);
         return view('books', [
             'books' => $books
         ]);
@@ -54,6 +54,7 @@ class BookController extends Controller
 
         // Eloquentモデル
         $books = new Book;
+        $books->user_id  = Auth::user()->id;
         $books->item_name   = $request->item_name;
         $books->item_number = $request->item_number;
         $books->item_amount = $request->item_amount;
@@ -73,10 +74,10 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Book $book)
+    public function edit($book_id)
     {
-        //{books}id 値を取得 => Book $books id 値の1レコード取得
-        return view('booksedit', ['book' => $book]);
+        $books = Book::where('user_id', Auth::user()->id)->find($book_id);
+        return view('booksedit', ['book' => $books]);
     }
 
     /**
@@ -100,7 +101,7 @@ class BookController extends Controller
         }
 
         //データ更新
-        $books = Book::find($request->id);
+        $books = Book::where('user_id', Auth::user()->id)->find($request->id);
         $books->item_name   = $request->item_name;
         $books->item_number = $request->item_number;
         $books->item_amount = $request->item_amount;
@@ -117,6 +118,4 @@ class BookController extends Controller
         $book->delete();       //追加
         return redirect('/');  //追加
     }
-
-
 }

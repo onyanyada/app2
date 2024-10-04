@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id'); //追加:user_id
             $table->string('item_name');     //ここを追加
             $table->integer('item_number');  //ここを追加
             $table->integer('item_amount');  //ここを追加
