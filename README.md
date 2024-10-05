@@ -10,8 +10,8 @@
 
 ## ③DEMO
 
-1→ https://studiohub.sakura.ne.jp/app2/login
-2→ https://studiohub.sakura.ne.jp/review/login.php
+- 1→ https://studiohub.sakura.ne.jp/app2/login
+- 2→ https://studiohub.sakura.ne.jp/review/login.php
 
 ## ④作ったアプリケーション用のIDまたはPasswordがある場合
 
@@ -39,7 +39,7 @@
 ## ⑥難しかった点・次回トライしたいこと(又は機能)
 
 - Laravel独自の構文や、値の渡し方
-- 今回は、すぐできるものを2つ作って勉強したので、次回は1つ凝ったものを作りたい
+- 今回は、単純なアプリを2つ作って勉強したので、次回は1つLaravelで何か凝ったものを作りたい
 
 ## ⑦質問・疑問・感想、シェアしたいこと等なんでも
 
